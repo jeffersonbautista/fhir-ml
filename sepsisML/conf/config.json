@@ -1,0 +1,97 @@
+{
+    "fhir_url": "https://syntheticmass.mitre.org/v1/fhir/",
+    "apikey": "oRiApLhlmbBSYfzLmIc4ig1GE0lOvUgo",
+    "map_endpoint": {
+        "hapi":{
+            "version": {
+                "2": {
+                    "url": "http://hapi.fhir.org/baseDstu2/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_generic"
+                },
+                "3": {
+                    "url":"http://hapi.fhir.org/baseDstu3/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_generic"
+                },
+                "4": {
+                    "url": "http://hapi.fhir.org/baseR4/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_generic"
+                },
+                "default": {
+                    "url": "http://hapi.fhir.org/baseR4/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_generic"
+                }
+            },
+            "params": {
+    
+            }
+        },
+        "smart": {
+            "version": {
+                "2": {
+                    "url": "https://r2.smarthealthit.org/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_smart2"
+                },
+                "3": {
+                    "url": "https://r3.smarthealthit.org/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_smart"
+                },
+                "4": {
+                    "url": "https://r4.smarthealthit.org/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_smart"
+                },
+                "default": {
+                    "url": "https://r4.smarthealthit.org/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_smart"
+                }
+            },
+            "params": {
+
+            }
+        },
+        "synthea": {
+            "version": {
+                "3": {
+                    "url": "https://syntheticmass.mitre.org/v1/fhir/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic"
+                },
+                "default": {
+                    "url": "https://syntheticmass.mitre.org/v1/fhir/",
+                    "get_patient": "get_patient_generic",
+                    "get_observations": "get_observations_generic"
+                }
+            },
+            "params": {
+                "apikey": "oRiApLhlmbBSYfzLmIc4ig1GE0lOvUgo"
+            }
+        },
+        "default": {
+            "version": {
+                "default": {
+                    "url": "https://syntheticmass.mitre.org/v1/fhir/",
+                    "get_patient": "get_patient_synthea1",
+                    "get_observations": "get_observations_generic"
+                }
+            },
+            "params": {
+                "apikey": "oRiApLhlmbBSYfzLmIc4ig1GE0lOvUgo"
+            }
+        }
+    }
+}
