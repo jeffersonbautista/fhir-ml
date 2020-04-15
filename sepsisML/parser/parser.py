@@ -76,9 +76,9 @@ def get_observations_generic(raw_observations):
     df_observation['value'] = df_observation['resource'].apply(lambda x: observations.extract_value(x))
     df_observation['id'] = df_observation['fullUrl'].apply(lambda x: utils.remove_prefix(x))
     df_observation['patient'] = df_observation['resource'].apply(lambda x: observations.extract_patient(x))
-    df_observation['procedure'] = utils.create_others(df_observation, 'procedure', 'id')
+    # df_observation['procedure'] = utils.create_others(df_observation, 'procedure', 'id')
 
-    df_obs_pivot = df_observation.pivot_table(index='patient', columns='procedure', values='value', aggfunc = sum)
+    df_obs_pivot = df_observation.pivot_table(index='patient', columns='procedure', values='value', aggfunc = 'mean')
     df_obs_pivot.fillna(0, inplace=True)
 
     return df_obs_pivot
@@ -100,7 +100,7 @@ def get_conditions_generic(raw_conditions):
     df_condition = conditions.filter_out_after_sepsis(df_condition)
     df_condition['conditions'] = df_condition['conditions'].apply(lambda x: utils.parse_unicode(x))
 
-    df_condition['conditions'] = utils.create_others(df_condition, 'conditions', 'id')
+    # df_condition['conditions'] = utils.create_others(df_condition, 'conditions', 'id')
     df_condition['conditions'] = df_condition['conditions'].apply(lambda x: utils.underscoreify(x))
     df_condition = utils.dummify(df_condition, ['conditions'], prefix='hist')
     df_condition['patient'] = df_condition['patient'].apply(lambda x: utils.remove_prefix(x))
@@ -118,7 +118,7 @@ def get_conditions_smart(raw_conditions):
     df_condition = conditions.filter_out_after_sepsis(df_condition)
     df_condition['conditions'] = df_condition['conditions'].apply(lambda x: utils.parse_unicode(x))
 
-    df_condition['conditions'] = utils.create_others(df_condition, 'conditions', 'id')
+    # df_condition['conditions'] = utils.create_others(df_condition, 'conditions', 'id')
     df_condition['conditions'] = df_condition['conditions'].apply(lambda x: utils.underscoreify(x))
     df_condition = utils.dummify(df_condition, ['conditions'], prefix='hist')
     df_condition['patient'] = df_condition['patient'].apply(lambda x: utils.remove_prefix(x))
@@ -136,7 +136,7 @@ def get_conditions_smart2(raw_conditions):
     df_condition = conditions.filter_out_after_sepsis(df_condition)
     df_condition['conditions'] = df_condition['conditions'].apply(lambda x: utils.parse_unicode(x))
 
-    df_condition['conditions'] = utils.create_others(df_condition, 'conditions', 'id')
+    # df_condition['conditions'] = utils.create_others(df_condition, 'conditions', 'id')
     df_condition['conditions'] = df_condition['conditions'].apply(lambda x: utils.underscoreify(x))
     df_condition = utils.dummify(df_condition, ['conditions'], prefix='hist')
     df_condition['patient'] = df_condition['patient'].apply(lambda x: utils.remove_prefix(x))

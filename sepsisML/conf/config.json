@@ -69,12 +69,14 @@
                 "3": {
                     "url": "https://syntheticmass.mitre.org/v1/fhir/",
                     "get_patient": "get_patient_generic",
-                    "get_observations": "get_observations_generic"
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_generic"
                 },
                 "default": {
                     "url": "https://syntheticmass.mitre.org/v1/fhir/",
                     "get_patient": "get_patient_generic",
-                    "get_observations": "get_observations_generic"
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_generic"
                 }
             },
             "params": {
@@ -86,7 +88,8 @@
                 "default": {
                     "url": "https://syntheticmass.mitre.org/v1/fhir/",
                     "get_patient": "get_patient_synthea1",
-                    "get_observations": "get_observations_generic"
+                    "get_observations": "get_observations_generic",
+                    "get_conditions": "get_conditions_generic"
                 }
             },
             "params": {

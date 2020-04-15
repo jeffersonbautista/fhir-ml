@@ -45,15 +45,27 @@ def predict():
     except NotEnoughData as notenoughdata:
         return jsonify(result="ERROR",
                     message=notenoughdata.message)
+    # return data.to_json()
 
     pre_data = preprocessor.preprocess(data)
     prediction = model.predict(pre_data)
     explanation = model.explain(pre_data)
+
     new_explain = []
     
     for explain, preds in zip(explanation, prediction.values):
         explain['prediction'] = preds
         new_explain.append(explain)
+
+    for sign in ['pos', 'neg']:
+        temp_explain = []
+        for i, exp in enumerate(new_explain[0]['feature_weights'][sign]):
+            if exp['feature'] == '<BIAS>' \
+                or exp['value'] == 0:
+                pass
+            else:
+                temp_explain.append(new_explain[0]['feature_weights'][sign][i])            
+        new_explain[0]['feature_weights'][sign] = temp_explain
 
     return jsonify(new_explain)
 
