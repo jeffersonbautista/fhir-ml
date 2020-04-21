@@ -8,7 +8,7 @@ import os
 
 def predict(data, model='random-forest'):
     print(os.getcwd())
-    model_path = 'sepsisML/ml/LogisticRegression-20200103.pkl' if model=='logistic-regression' else 'sepsisML/ml/RandomForest-20200103.pkl'
+    model_path = '/app/sepsisML/ml/LogisticRegression-20191216.pkl' if model=='logistic-regression' else '/app/sepsisML/ml/RandomForest-20200103.pkl'
     loaded_model = pickle.load(open(model_path, 'rb'))
     new_data = data.copy()
     new_data['prediction']="Negative" if loaded_model.predict(data[FEATURES])==0 else "Positive"
@@ -18,7 +18,7 @@ def predict(data, model='random-forest'):
 
 def explain(data, model='random-forest'):
     print(os.getcwd())
-    model_path = 'sepsisML/ml/LogisticRegression-20200103.pkl' if model=='logistic-regression' else 'sepsisML/ml/RandomForest-20200103.pkl'
+    model_path = '/app/sepsisML/ml/LogisticRegression-20200103.pkl' if model=='logistic-regression' else '/app/sepsisML/ml/RandomForest-20200103.pkl'
     loaded_model = pickle.load(open(model_path, 'rb'))
     
     results = []
